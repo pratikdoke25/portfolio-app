@@ -22,60 +22,96 @@ function HeroSection() {
       />
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
-        <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            Hello, <br />
-            This is <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">{personalData.designation}</span>.
-          </h1>
+        <div className="order-2 lg:order-1 flex flex-col items-start justify-center space-y-8">
+          {/* Badge */}
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-[#16f2b3] animate-pulse"></div>
+            <span className="text-xs font-semibold text-[#16f2b3] uppercase tracking-widest">
+              Welcome to my portfolio
+            </span>
+          </div>
 
-          <div className="my-12 flex items-center gap-5">
-            <Link
-              href={personalData.github}
-              target="_blank"
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <BsGithub size={30} />
+          {/* Heading */}
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+              Hi, I'm{" "}
+              <span className="bg-gradient-to-r from-pink-500 via-pink-400 to-red-500 bg-clip-text text-transparent">
+                {personalData.name}
+              </span>
+            </h1>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-300">
+                I'm a
+              </h2>
+              <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#16f2b3] to-[#0ef9f3] bg-clip-text text-transparent">
+                {personalData.designation}
+              </span>
+            </div>
+          </div>
+
+          {/* Description */}
+          <p className="text-gray-400 text-base lg:text-lg leading-relaxed max-w-lg">
+            I build modern, responsive web applications with cutting-edge
+            technologies. Passionate about creating seamless user experiences
+            and solving complex problems.
+          </p>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            <Link href={personalData.github} target="_blank" className="group">
+              <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-pink-500/20 border border-[#16f2b3]/30 group-hover:border-[#16f2b3]/60 group-hover:from-[#16f2b3]/30 group-hover:to-pink-500/30 group-hover:shadow-lg group-hover:shadow-[#16f2b3]/20 group-hover:scale-110 transition-all duration-300">
+                <BsGithub
+                  className="text-[#16f2b3] group-hover:text-[#0ef9f3] transition-colors"
+                  size={24}
+                />
+              </div>
             </Link>
             <Link
               href={personalData.linkedIn}
               target="_blank"
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
+              className="group"
             >
-              <BsLinkedin size={30} />
+              <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-pink-500/20 border border-[#16f2b3]/30 group-hover:border-[#16f2b3]/60 group-hover:from-[#16f2b3]/30 group-hover:to-pink-500/30 group-hover:shadow-lg group-hover:shadow-[#16f2b3]/20 group-hover:scale-110 transition-all duration-300">
+                <BsLinkedin
+                  className="text-[#16f2b3] group-hover:text-[#0ef9f3] transition-colors"
+                  size={24}
+                />
+              </div>
             </Link>
-
             <Link
               href={personalData.leetcode}
               target="_blank"
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
+              className="group"
             >
-              <SiLeetcode size={30} />
+              <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-pink-500/20 border border-[#16f2b3]/30 group-hover:border-[#16f2b3]/60 group-hover:from-[#16f2b3]/30 group-hover:to-pink-500/30 group-hover:shadow-lg group-hover:shadow-[#16f2b3]/20 group-hover:scale-110 transition-all duration-300">
+                <SiLeetcode
+                  className="text-[#16f2b3] group-hover:text-[#0ef9f3] transition-colors"
+                  size={24}
+                />
+              </div>
             </Link>
-            <Link
-              href={personalData.twitter}
-              target="_blank"
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <FaTwitterSquare size={30} />
+            <Link href={personalData.twitter} target="_blank" className="group">
+              <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-pink-500/20 border border-[#16f2b3]/30 group-hover:border-[#16f2b3]/60 group-hover:from-[#16f2b3]/30 group-hover:to-pink-500/30 group-hover:shadow-lg group-hover:shadow-[#16f2b3]/20 group-hover:scale-110 transition-all duration-300">
+                <FaTwitterSquare
+                  className="text-[#16f2b3] group-hover:text-[#0ef9f3] transition-colors"
+                  size={24}
+                />
+              </div>
             </Link>
           </div>
 
-          <div className="flex items-center gap-3">
-            <Link
-              href="#contact"
-              className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600"
-            >
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
-                <span
-                  style={{
-                    cursor: "pointer",
-                  }}
-                >
-                  Contact me
-                </span>
-                <RiContactsFill size={16} />
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+            <Link href="#contact" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-[#16f2b3] to-[#0ef9f3] text-gray-900 font-bold uppercase tracking-wider rounded-lg hover:shadow-lg hover:shadow-[#16f2b3]/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                <span>Get in touch</span>
+                <RiContactsFill size={20} />
+              </button>
+            </Link>
+            <Link href={""} target="_blank" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto px-8 py-3 bg-transparent border-2 border-[#16f2b3] text-[#16f2b3] font-bold uppercase tracking-wider rounded-lg hover:bg-[#16f2b3]/10 hover:shadow-lg hover:shadow-[#16f2b3]/30 transition-all duration-300 flex items-center justify-center gap-2">
+                <span>Download CV</span>
+                <MdDownload size={20} />
               </button>
             </Link>
           </div>

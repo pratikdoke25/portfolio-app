@@ -12,58 +12,106 @@ import { JSX } from "react/jsx-runtime";
 
 const ContactSection = (): JSX.Element => {
   return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
+    <div id="contact" className="my-12 lg:my-24 relative">
       <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
+        <span className="bg-gradient-to-r from-[#16f2b3] to-[#0ef9f3] bg-clip-text text-transparent rotate-90 p-2 px-5 text-xl font-bold rounded-md">
           CONTACT
         </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
+        <span className="h-36 w-[2px] bg-gradient-to-b from-[#16f2b3] to-transparent"></span>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <ContactForm />
-        <div className="lg:w-3/4 ">
-          <div className="flex flex-col gap-5 lg:gap-9">
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <MdAlternateEmail
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.email}</span>
-            </p>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <IoMdCall
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.phone}</span>
-            </p>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <CiLocationOn
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.address}</span>
-            </p>
+
+        <div className="space-y-10">
+          <div>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="h-1 w-12 bg-gradient-to-r from-[#16f2b3] to-[#0ef9f3]"></div>
+              <p className="font-semibold text-[#16f2b3] text-xs uppercase tracking-[0.15em]">
+                Contact Info
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <div className="flex items-center gap-5 group cursor-pointer">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-[#0ef9f3]/20 border border-[#16f2b3]/30 group-hover:border-[#16f2b3]/60 group-hover:bg-gradient-to-br group-hover:from-[#16f2b3]/30 group-hover:to-[#0ef9f3]/30 transition-all duration-300">
+                  <MdAlternateEmail
+                    className="text-[#16f2b3] group-hover:text-[#0ef9f3] transition-colors"
+                    size={24}
+                  />
+                </div>
+                <div>
+                  <p className="text-gray-500 text-sm uppercase tracking-wide mb-1">Email</p>
+                  <a href={`mailto:${personalData.email}`} className="text-white text-lg hover:text-[#16f2b3] transition-colors">
+                    {personalData.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5 group cursor-pointer">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-[#0ef9f3]/20 border border-[#16f2b3]/30 group-hover:border-[#16f2b3]/60 group-hover:bg-gradient-to-br group-hover:from-[#16f2b3]/30 group-hover:to-[#0ef9f3]/30 transition-all duration-300">
+                  <IoMdCall
+                    className="text-[#16f2b3] group-hover:text-[#0ef9f3] transition-colors"
+                    size={24}
+                  />
+                </div>
+                <div>
+                  <p className="text-gray-500 text-sm uppercase tracking-wide mb-1">Phone</p>
+                  <a href={`tel:${personalData.phone}`} className="text-white text-lg hover:text-[#16f2b3] transition-colors">
+                    {personalData.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5 group cursor-pointer">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-[#0ef9f3]/20 border border-[#16f2b3]/30 group-hover:border-[#16f2b3]/60 group-hover:bg-gradient-to-br group-hover:from-[#16f2b3]/30 group-hover:to-[#0ef9f3]/30 transition-all duration-300">
+                  <CiLocationOn
+                    className="text-[#16f2b3] group-hover:text-[#0ef9f3] transition-colors"
+                    size={24}
+                  />
+                </div>
+                <div>
+                  <p className="text-gray-500 text-sm uppercase tracking-wide mb-1">Location</p>
+                  <p className="text-white text-lg">{personalData.address}</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
-            <Link target="_blank" href={personalData.github}>
-              <IoLogoGithub
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-            <Link target="_blank" href={personalData.linkedIn}>
-              <BiLogoLinkedin
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-            <Link target="_blank" href={personalData.twitter}>
-              <FaXTwitter
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
+
+          <div>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="h-1 w-12 bg-gradient-to-r from-[#16f2b3] to-[#0ef9f3]"></div>
+              <p className="font-semibold text-[#16f2b3] text-xs uppercase tracking-[0.15em]">
+                Follow Me
+              </p>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Link target="_blank" href={personalData.github}>
+                <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-[#0ef9f3]/20 border border-[#16f2b3]/30 hover:border-[#16f2b3]/60 hover:bg-gradient-to-br hover:from-[#16f2b3]/30 hover:to-[#0ef9f3]/30 hover:scale-110 transition-all duration-300">
+                  <IoLogoGithub
+                    className="text-[#16f2b3] hover:text-[#0ef9f3] transition-colors"
+                    size={24}
+                  />
+                </div>
+              </Link>
+              <Link target="_blank" href={personalData.linkedIn}>
+                <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-[#0ef9f3]/20 border border-[#16f2b3]/30 hover:border-[#16f2b3]/60 hover:bg-gradient-to-br hover:from-[#16f2b3]/30 hover:to-[#0ef9f3]/30 hover:scale-110 transition-all duration-300">
+                  <BiLogoLinkedin
+                    className="text-[#16f2b3] hover:text-[#0ef9f3] transition-colors"
+                    size={24}
+                  />
+                </div>
+              </Link>
+              <Link target="_blank" href={personalData.twitter}>
+                <div className="p-3 rounded-xl bg-gradient-to-br from-[#16f2b3]/20 to-[#0ef9f3]/20 border border-[#16f2b3]/30 hover:border-[#16f2b3]/60 hover:bg-gradient-to-br hover:from-[#16f2b3]/30 hover:to-[#0ef9f3]/30 hover:scale-110 transition-all duration-300">
+                  <FaXTwitter
+                    className="text-[#16f2b3] hover:text-[#0ef9f3] transition-colors"
+                    size={24}
+                  />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

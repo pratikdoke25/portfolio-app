@@ -4,6 +4,7 @@ import { skillsData } from "@/utils/data/skills";
 import { skillsImage } from "@/utils/skill-image";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import { BsTools } from "react-icons/bs";
 
 function Skills() {
   return (
@@ -16,13 +17,21 @@ function Skills() {
         </div>
       </div>
 
-      <div className="flex justify-center my-5 lg:py-8">
-        <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-            Skills
-          </span>
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+      <div className="flex justify-center my-8 lg:my-12">
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex items-center gap-3">
+            <span className="w-12 h-[2px] bg-gradient-to-r from-[#16f2b3] to-transparent"></span>
+            <div className="flex items-center gap-2">
+              <BsTools className="text-[#16f2b3]" size={24} />
+              <span className="bg-gradient-to-r from-[#16f2b3] to-[#0ef9f3] bg-clip-text text-transparent text-2xl lg:text-3xl font-bold">
+                Skills & Tools
+              </span>
+            </div>
+            <span className="w-12 h-[2px] bg-gradient-to-l from-[#16f2b3] to-transparent"></span>
+          </div>
+          <p className="text-gray-400 text-sm text-center max-w-md">
+            Technologies and tools I use to build amazing digital experiences
+          </p>
         </div>
       </div>
 
